@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="port-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>Aluguel Carros</title>
+        <link rel="stylesheet" type="text/css" href="css/Usuarios.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css"  rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">       
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="css/aos.css">
+        <link rel="stylesheet" href="css/ionicons.min.css">
+        <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="css/jquery.timepicker.css">
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    </head>
+    <body onload="Loged()">
+        <div class="preloader-body">
+            <div class="cssload-container">
+                <div class="cssload-speeding-wheel"></div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+        
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="#SobreNos" class="nav-link">Sobre Nos</a></li>
+                        <li class="nav-item"><a href="#Servicos" class="nav-link">Serviços</a></li>
+                        <li class="nav-item"><a href="#" onclick="VerifyAccessToCars()" class="nav-link">Veículos</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+                        <div id="Loged" class="dropdown"></div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="hero-wrap " style="background-image: url('images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center ">
+                    <div class="container mt-5"></div>
+                    <div class="container shadow-lg rounded-4 mt-lg-5" style="background-color: white;">
+                        <h1 class="display-1 text-center text-dark mt-5">Usuários</h1>
+                        <div class="row">
+                            <div class="d-flex align-items-end justify-content-end">
+                                <a class="btn btn-success mt-2 mb-lg-3" data-bs-toggle="collapse" href="#CreateUser" role="button" aria-expanded="false" aria-controls="CreateUser">Cadastrar novo Usuário</a>
+                            </div>
+                        </div>
+
+                        <div class="collapse" id="CreateUser">
+                            <form class="row ms-1 me-1">
+                                <div class="form-outline mb-3">
+                                    <input type="text" id="nome" class="form-control" placeholder="Nome Completo" required/>
+                                </div>
+                                <div class="form-outline mb-3">
+                                    <input type="email" id="email" class="form-control" placeholder="Email" required/>
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <input type="password" id="senha" class="form-control" placeholder="Senha" required />
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <select class="custom-select form-control" id="acesso" required>
+                                        <option selected disabled value="">Nível de acesso: </option>
+                                        <option value="ADMIN">Admin</option>
+                                        <option value="CLIENT">Cliente</option>
+                                        <option value="SELLERS">Vendedores</option>
+                                        <option value="FINANCIAL">Financeiro</option>
+                                        <option value="THIRDPARTY">Terceiro</option>
+                                    </select>
+                                </div>
+                                
+                                <label class="form-label-lg">Aniversário</label>
+                                <div class="row  mb-3">
+                                    <div class="col ">
+                                        <div class="form-outline">
+                                            <input type="number" min="1" max="31" id="dia" class="form-control input-custom" placeholder="Dia" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <select class="custom-select form-control" id="mes" required>
+                                            <option selected disabled value="">mês: </option>
+                                            <option value="1">Janeiro</option>
+                                            <option value="2">Fevereiro</option>
+                                            <option value="3">Março</option>
+                                            <option value="4">Abril</option>
+                                            <option value="5">Maio</option>
+                                            <option value="6">Junho</option>
+                                            <option value="7">Julho</option>
+                                            <option value="8">Agosto</option>
+                                            <option value="9">Setembro</option>
+                                            <option value="10">Outubro</option>
+                                            <option value="11">Novembro</option>
+                                            <option value="12">Dezembro</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline">
+                                            <input type="number" id="ano" min="1901" max="2023" class="form-control input-custom" placeholder="Ano" required/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <input type="text" id="documentoLegal" class="form-control" placeholder="Documento Legal" required/>
+                                </div>
+
+                                <div class="col form-outline mb-3">
+                                    <input type="number" id="phone1" class="form-control" placeholder="Telefone 1" required/>
+                                </div>
+                                <div class="col form-outline mb-3">
+                                    <input type="number" id="phone2" class="form-control" placeholder="Telefone 2"/>
+                                </div>
+
+                                <div class="form-outline mb-3">
+                                    <select class="custom-select form-control" id="sexo" required>
+                                        <option selected disabled value="">Sexo: </option>
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                    </select>
+                                </div>
+
+                                <label class="form-label">Endereço</label>
+                                <div class="col form-outline mb-3">
+                                    <select class="custom-select form-control" id="estado" required>
+                                        <option selected disabled value="">Estado: </option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="TO">Tocantins</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="SP">São Paulo</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="DF">Destrito Federal</option>
+                                    </select>
+                                </div>
+                                <div class="col form-outline mb-3">
+                                    <input type="text" id="cidade" class="form-control" placeholder="Cidade" required/>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col form-outline mb-3">
+                                        <input type="text" id="rua" class="form-control input-custom" placeholder="Rua" required/>
+                                    </div>
+                                    <div class="col form-outline mb-3">
+                                        <input type="text" id="numeroCasa" class="form-control input-custom" placeholder="Numero" required/>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col form-outline mb-3">
+                                        <input type="text" id="destrito" class="form-control input-custom" placeholder="Bairro" required/>
+                                    </div>
+                                    <div class="col form-outline mb-3">
+                                        <input type="text" id="zip" class="form-control input-custom" placeholder="CEP" required />
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn btn-success mt-2 mb-lg-3"id="senUsersToBack" type="button" onclick="CreateUser()">Cadastrar novo Usuário</a></button>
+                                    <button class="btn btn-success mt-2 mb-lg-3 ms-4"id="senExistUsersToBack" type="button" onclick="editUser()">Editar Usuário</a></button>
+                                </div>
+                                    
+
+                            </form>
+                            </div>
+                            <div id="UserTable">
+                                <table id="Usuarios" class="table table-striped border mt-lg-4" style="width:100%">
+                                </table>
+    
+                            </div>
+                            <div class="centraliza" id="Pagination"></div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="js/IndexJS/jquery.min.js"></script>
+    <script src="js/IndexJS/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/IndexJS/popper.min.js"></script>
+    <script src="js/IndexJS/bootstrap.min.js"></script>
+    <script src="js/IndexJS/jquery.easing.1.3.js"></script>
+    <script src="js/IndexJS/jquery.waypoints.min.js"></script>
+    <script src="js/IndexJS/jquery.stellar.min.js"></script>
+    <script src="js/IndexJS/owl.carousel.min.js"></script>
+    <script src="js/IndexJS/jquery.magnific-popup.min.js"></script>
+    <script src="js/IndexJS/jquery.timepicker.min.js"></script>
+    <script src="js/IndexJS/scrollax.min.js"></script>
+    <script src="js/IndexJS/jquery.animateNumber.min.js"></script>
+    <script src="js/IndexJS/bootstrap-datepicker.js"></script>
+    <script src="js/IndexJS/aos.js"></script>
+    <script src="js/IndexJS/main.js"></script>
+    <script src="js/Usuario.js"></script>
+    <script src="js/LogedChecker.js"></script>
+</html>
